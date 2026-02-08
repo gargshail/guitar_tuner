@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Tuner Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#22d3ee">
+</head>
+<body>
+    <div class="app-container">
+        <header class="tuner-header">
+            <h1 class="title">Guitar Tuner Pro</h1>
+        </header>
+
+        <main class="main-display">
+            <div id="note-name" class="note-display">-</div>
+            <div id="freq-val" class="frequency-display">0.00 Hz</div>
+            
+            <div class="meter-container">
+                <div class="meter-scale"></div>
+                <div class="meter-center"></div>
+                <div id="needle" class="meter-needle"></div>
+            </div>
+        </main>
+
+        <section class="strings-container">
+            <div class="string" data-target="E2">
+                <div class="string-name">E</div>
+                <div class="string-line"></div>
+            </div>
+            <div class="string" data-target="A2">
+                <div class="string-name">A</div>
+                <div class="string-line"></div>
+            </div>
+            <div class="string" data-target="D3">
+                <div class="string-name">D</div>
+                <div class="string-line"></div>
+            </div>
+            <div class="string" data-target="G3">
+                <div class="string-name">G</div>
+                <div class="string-line"></div>
+            </div>
+            <div class="string" data-target="B3">
+                <div class="string-name">B</div>
+                <div class="string-line"></div>
+            </div>
+            <div class="string" data-target="E4">
+                <div class="string-name">e</div>
+                <div class="string-line"></div>
+            </div>
+        </section>
+
+        <footer class="controls">
+            <button id="start-btn">START TUNING</button>
+        </footer>
+    </div>
+
+    <button id="install-btn" class="pwa-install">Install App</button>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

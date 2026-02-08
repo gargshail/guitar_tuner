@@ -1,0 +1,214 @@
+:root {
+  --bg-color: #0f172a;
+  --panel-bg: rgba(30, 41, 59, 0.7);
+  --accent-color: #22d3ee;
+  --text-color: #f8fafc;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.tuner-header {
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.main-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.note-display {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+  transition: all 0.2s ease;
+}
+
+.note-display.in-tune {
+  color: var(--success-color);
+  text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+}
+
+.frequency-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+/* Tuning Meter */
+.meter-container {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.meter-scale {
+  width: 100%;
+  height: 2px;
+  background: var(--glass-border);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.meter-center {
+  width: 4px;
+  height: 20px;
+  background: var(--success-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--success-color);
+}
+
+.meter-needle {
+  width: 3px;
+  height: 40px;
+  background: var(--accent-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.1s ease-out;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.meter-needle.in-tune {
+  background: var(--success-color);
+}
+
+/* Strings Visualization */
+.strings-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  background: var(--panel-bg);
+  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
+}
+
+.string {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.string:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.string.active {
+  background: rgba(34, 211, 238, 0.15);
+  border: 1px solid var(--accent-color);
+}
+
+.string-line {
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--glass-border), transparent);
+}
+
+.string.active .string-line {
+  background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+  box-shadow: 0 0 15px var(--accent-color);
+  animation: vibrate 0.1s infinite;
+}
+
+.string-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(1px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#start-btn {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+}
+
+#start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(34, 211, 238, 0.4);
+}
+
+.pwa-install {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--panel-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  display: none;
+}
