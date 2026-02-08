@@ -6,7 +6,7 @@ const ASSETS = [
     '/main.js',
     '/src/pitch_detection.js',
     '/manifest.json',
-    '/icon.svg'
+    '/icon.png'
 ];
 
 self.addEventListener('install', (event) => {
